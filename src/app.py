@@ -27,7 +27,6 @@ def sitemap():
 def handle_hello():
     # this is how you can use the Family datastructure by calling its methods
     members = jackson_family.get_all_members()
-
     return jsonify(members), 200
 
 
