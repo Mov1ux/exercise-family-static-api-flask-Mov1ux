@@ -49,8 +49,12 @@ def get_member(id):
 @app.route('/member', methods=['POST'])
 def add_member():
     body = request.get_json()
+    if "id" in body:
+        id = body["id"]
+    else:
+        id = jackson_family._generateId()
     new_member = {
-        "id": jackson_family._generateId(),
+        "id": id,
         "first_name": body["first_name"],
         "last_name": jackson_family.last_name,
         "age": body["age"],
